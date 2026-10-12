@@ -1,4 +1,4 @@
-# CMD — Computational Materials Design for Advanced Functional Materials
+# CMD — Computational Materials Design for Advanced Functional Materialss
 
 Website for the CMD research group, built with **Next.js 16 (App Router)**, **React 19**, **TypeScript** and **Tailwind CSS v4**.
 
