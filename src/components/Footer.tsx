@@ -46,22 +46,14 @@ export function Footer() {
               {site.email}
             </a>
           </address>
-          <ul className="mt-5 flex gap-4 text-[0.9rem] text-frost-muted">
-            <li>
-              <a className="hover:text-conduction-lt" href={site.social.github}>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a className="hover:text-conduction-lt" href={site.social.scholar}>
-                Google Scholar
-              </a>
-            </li>
-            <li>
-              <a className="hover:text-conduction-lt" href={site.social.linkedin}>
-                LinkedIn
-              </a>
-            </li>
+          <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-[0.9rem] text-frost-muted">
+            {site.links.map((l) => (
+              <li key={l.href}>
+                <a className="hover:text-conduction-lt" href={l.href}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

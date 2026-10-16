@@ -36,6 +36,6 @@ export const positions: Position[] = [
     level: "MSc / BSc",
     deadline: "Rolling",
     text: "Short projects on band structures, phonons, catalysis or automation. A good way to find out whether computational research suits you.",
-    requirements: ["Enrolled student at the university or a partner institution", "Curiosity and patience with error messages"],
+    requirements: ["Enrolled student at UGM or a partner institution", "Curiosity and patience with error messages"],
   },
 ];

@@ -14,7 +14,7 @@ const steps = [
   "Read a recent paper from the group that interests you.",
   "Send a short email with your CV, transcripts and a paragraph on what you would like to work on.",
   "If there is a fit, we arrange a video call and a small computational exercise.",
-  "Successful candidates are supported through the university's admission and scholarship applications.",
+  "Successful candidates are supported through UGM's admission and scholarship applications.",
 ];
 
 export default function JoinPage() {
@@ -79,8 +79,6 @@ export default function JoinPage() {
               <span className="block font-medium">
                 {site.name} group
               </span>
-              <span className="block text-muted">{site.affiliation}</span>
-              <span className="block text-muted">{site.institution}</span>
               {site.address.map((l) => (
                 <span key={l} className="block text-muted">
                   {l}

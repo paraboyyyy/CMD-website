@@ -21,7 +21,7 @@ export default async function PublicationsPage({
       <PageHeader title="Publications">
         <p className="measure mt-6 text-[var(--text-lead)] leading-relaxed text-muted">
           Papers from the group, newest first. A complete and always up-to-date list is on{" "}
-          <a className="link" href={site.social.scholar}>
+          <a className="link" href={site.scholar}>
             Google Scholar
           </a>
           .
