@@ -14,12 +14,11 @@ export type Person = {
 
 export const people: Person[] = [
   {
-    name: "Dr. Arini Wicaksono",
-    role: "Principal Investigator",
+    name: "Moh. Adhib Ulil Absor, S.Si., M.Sc., Ph.D.",
+    role: "Supervisor / Lead",
     group: "lead",
     focus: "Topological and Janus 2D materials, first-principles methods",
     email: "pi@example.ac.id",
-    bio: "Arini leads the group's work on low-dimensional quantum materials. She trained in condensed-matter theory and spent several years developing Wannier-based methods for spin–orbit-coupled systems before founding CMD.",
     links: [
       { label: "Google Scholar", href: "https://scholar.google.com/" },
       { label: "ORCID", href: "https://orcid.org/" },
