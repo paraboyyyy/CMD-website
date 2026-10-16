@@ -3,7 +3,8 @@
 // Values pasted into a dashboard often pick up a newline, spaces, quotes or invisible characters,
 // which the browser then refuses to send ("Failed to execute 'fetch' on 'Window': Invalid value").
 // URLs and Supabase keys only ever use these characters, so drop anything else.
-const clean = (v: string | undefined) => (v ?? "").replace(/[^A-Za-z0-9._:/-]/g, "");
+// A whole ".env" line (NAME=value) pasted as the value is also common: keep only what follows "=".
+const clean = (v: string | undefined) => (v ?? "").split("=").pop()!.replace(/[^A-Za-z0-9._:/-]/g, "");
 
 export const supabaseUrl = clean(process.env.NEXT_PUBLIC_SUPABASE_URL).replace(/\/+$/, "");
 export const supabaseKey = clean(
