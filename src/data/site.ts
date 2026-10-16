@@ -8,7 +8,7 @@ export const site = {
   name: "Computational Materials Design",
   tagline: "for Advanced Functional Materials",
   description:
-    "We use first-principles simulation and machine learning to understand and design functional materials for quantum technologies, energy and catalysis.",
+    "We use first-principles simulation and machine learning to understand and design functional materials for spintronics, quantum technologies, sensing and energy.",
   affiliation: "Department of Physics, Faculty of Mathematics and Natural Sciences",
   institution: "Your University",
   address: ["Building C, Room 3.12", "Jl. Contoh Kampus No. 1", "Yogyakarta 55281, Indonesia"],

@@ -35,8 +35,8 @@ export default function Home() {
               We design materials on a computer before they exist in a lab.
             </h1>
             <p className="mt-7 max-w-[34rem] text-[1.15rem] leading-relaxed text-frost-muted">
-              CMD combines first-principles quantum mechanics with machine learning to find materials for quantum
-              devices, clean energy and catalysis, then works with experimental partners to make them real.
+              CMD uses first-principles quantum mechanics and machine learning to understand and design materials for
+              spintronics, quantum devices, sensing and clean energy, and works with experimental partners to test them.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/research" className="btn btn-amber">

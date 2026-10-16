@@ -7,7 +7,7 @@ export type Publication = {
   authors: string;
   venue: string;
   year: number;
-  theme: "quantum-2d" | "energy" | "catalysis" | "ml";
+  theme: "spin-orbit" | "topo-magnetic" | "functional" | "ml-energy";
   doi?: string;
   pdf?: string;
   highlight?: boolean;
@@ -20,7 +20,7 @@ export const publications: Publication[] = [
     authors: "M. O. D. Setyawan, A. Lukmantoro, M. A. U. Absor",
     venue: "Electronic Structure",
     year: 2026,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/2516-1075/ae4ce2",
   },
   {
@@ -29,7 +29,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, A. P. Nugraheni, A. Lukmantoro, F. E. M. Rahangiar, M. D. Umar, E. Suprayoga, F. Ishii, Harsojo",
     venue: "Computational Materials Science",
     year: 2026,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.1016/j.commatsci.2026.114777",
   },
   {
@@ -38,7 +38,7 @@ export const publications: Publication[] = [
     authors: "F. D. Sari, B. I. Rohmatulloh, A. F. N. Sari, P. H. Putri, A. Lukmantoro, M. A. U. Absor",
     venue: "Journal of Electronic Materials",
     year: 2026,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1007/s11664-025-12490-6",
   },
   {
@@ -47,7 +47,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, A. Lukmantoro, F. D. Sari, N. L. Hamidah, A. Darmawan",
     venue: "Surfaces and Interfaces",
     year: 2026,
-    theme: "energy",
+    theme: "functional",
     doi: "10.1016/j.surfin.2025.108296",
   },
   {
@@ -56,7 +56,7 @@ export const publications: Publication[] = [
     authors: "R. Aflaha, A. Lukmantoro, S. Andaresta, G. Mulan, C. N. Maharani, F. E. M. Rahangiar, Y. D. Prabowo, A. Rianjanu, M. A. U. Absor, K. Triyana, R. Roto, W. B. K. Putri",
     venue: "Surfaces and Interfaces",
     year: 2026,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.surfin.2026.108729",
   },
   {
@@ -65,7 +65,7 @@ export const publications: Publication[] = [
     authors: "S. R. A. Razid, S. S. Alias, N. H. A. A. Muhaimin, S. Shamsor, A. Z. Rohaizam, J. Matmin, F. I. A. Razak, M. A. U. Absor, N. Alias, Z. Lockman",
     venue: "Surfaces and Interfaces",
     year: 2026,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.surfin.2026.108552",
   },
   {
@@ -74,7 +74,7 @@ export const publications: Publication[] = [
     authors: "R. Roto, R. Aflaha, A. Lukmantoro, C. N. Maharani, G. Mulan, S. Andaresta, H. Afiyanti, L. L. R. Trifina, L. Katriani, R. Gupta, M. A. U. Absor, K. Triyana",
     venue: "Microchemical Journal",
     year: 2026,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.microc.2026.119753",
   },
   {
@@ -83,7 +83,7 @@ export const publications: Publication[] = [
     authors: "A. Darmawan, H. Muhtar, D. N. Bima, N. L. Hamidah, M. A. U. Absor",
     venue: "Journal of Water Process Engineering",
     year: 2026,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.jwpe.2025.109349",
   },
   {
@@ -92,7 +92,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, M. Arifin, I. Santoso, Harsojo",
     venue: "Physical Review B",
     year: 2025,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.111.155139",
     highlight: true,
   },
@@ -102,7 +102,7 @@ export const publications: Publication[] = [
     authors: "F. E. M. Rahangiar, E. H. Hasdeo, M. D. Umar, M. A. U. Absor",
     venue: "Journal of Applied Physics",
     year: 2025,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.1063/5.0281234",
   },
   {
@@ -111,7 +111,7 @@ export const publications: Publication[] = [
     authors: "S. Sholihun, H. S. Bagariang, M. A. U. Absor, D. Andiwijayakusuma",
     venue: "International Journal of Computational Materials Science and Engineering",
     year: 2025,
-    theme: "quantum-2d",
+    theme: "functional",
     doi: "10.1142/s2047684123500410",
   },
   {
@@ -120,7 +120,7 @@ export const publications: Publication[] = [
     authors: "F. J. Kusuma, E. Widianto, Wahyono, I. Santoso, Sholihun, M. A. U. Absor, S. P. Sakti, K. Triyana",
     venue: "Journal of Alloys and Compounds",
     year: 2025,
-    theme: "ml",
+    theme: "ml-energy",
     doi: "10.1016/j.jallcom.2025.182102",
   },
   {
@@ -129,7 +129,7 @@ export const publications: Publication[] = [
     authors: "H. Ardiyanti, N. Mabarroh, N. A. Wibowo, N. I. Istiqomah, R. M. Tumbelaka, M. Y. Darmawan, Z. Zurnansyah, Y. D. Prabowo, M. A. U. Absor, E. Suharyadi",
     venue: "Sensing and Imaging",
     year: 2025,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1007/s11220-025-00597-3",
   },
   {
@@ -138,7 +138,7 @@ export const publications: Publication[] = [
     authors: "S. A. Putri, M. A. U. Absor, N. Yamaguchi, F. Ishii",
     venue: "Japanese Journal of Applied Physics",
     year: 2025,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.35848/1347-4065/ae00cf",
   },
   {
@@ -147,7 +147,7 @@ export const publications: Publication[] = [
     authors: "F. J. Kusuma, E. Widianto, Wahyono, I. Santoso, Sholihun, M. A. U. Absor, S. P. Sakti, K. Triyana",
     venue: "Solar Energy",
     year: 2025,
-    theme: "ml",
+    theme: "ml-energy",
     doi: "10.1016/j.solener.2024.113189",
   },
   {
@@ -156,7 +156,7 @@ export const publications: Publication[] = [
     authors: "A. Lukmantoro, E. Suprayoga, M. A. U. Absor",
     venue: "Physical Review Materials",
     year: 2025,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevmaterials.9.016202",
   },
   {
@@ -165,7 +165,7 @@ export const publications: Publication[] = [
     authors: "F. J. Kusuma, E. Widianto, Wahyono, I. Santoso, Sholihun, M. A. U. Absor, S. P. Sakti, K. Triyana",
     venue: "Renewable Energy",
     year: 2025,
-    theme: "ml",
+    theme: "ml-energy",
     doi: "10.1016/j.renene.2025.122947",
   },
   {
@@ -174,7 +174,7 @@ export const publications: Publication[] = [
     authors: "K. Wijaya, D. Ariningtyas, A. J. Saviola, S. Sudiono, M. A. U. Absor, W.-C. Oh, K. Rozana, W. D. Saputri, D. A. Saputra, M. Anggaravidya, R. A. Fitria, E. C. Sambara",
     venue: "Vacuum",
     year: 2025,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.vacuum.2025.114736",
   },
   {
@@ -183,7 +183,7 @@ export const publications: Publication[] = [
     authors: "M. D. Umar, H. L. Hariyanto, M. A. U. Absor",
     venue: "Physica B: Condensed Matter",
     year: 2024,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.1016/j.physb.2024.415904",
   },
   {
@@ -192,7 +192,7 @@ export const publications: Publication[] = [
     authors: "M. D. Umar, H. L. Hariyanto, M. A. U. Absor",
     venue: "Review of Scientific Instruments",
     year: 2024,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.1063/5.0156751",
   },
   {
@@ -201,7 +201,7 @@ export const publications: Publication[] = [
     authors: "H. Ardiyanti, N. Mabarroh, N. A. Wibowo, N. I. Istiqomah, M. A. U. Absor, E. Suharyadi",
     venue: "Materials Science Forum",
     year: 2024,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.4028/p-etdd12",
   },
   {
@@ -210,7 +210,7 @@ export const publications: Publication[] = [
     authors: "D. N. Rositawati, E. Widianto, Suprapto, T. Sujitno, M. A. U. Absor, Sholihun, K. Triyana, I. Santoso",
     venue: "Materials Chemistry and Physics",
     year: 2024,
-    theme: "energy",
+    theme: "ml-energy",
     doi: "10.1016/j.matchemphys.2024.129295",
   },
   {
@@ -219,7 +219,7 @@ export const publications: Publication[] = [
     authors: "F. D. Sari, A. Lukmantoro, R. A. H. Wahid, M. A. U. Absor",
     venue: "Journal of Electronic Materials",
     year: 2024,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1007/s11664-024-11542-7",
   },
   {
@@ -228,7 +228,7 @@ export const publications: Publication[] = [
     authors: "D. N. Rositawati, E. Widianto, A. Lukmantoro, M. A. U. Absor, Sholihun, K. Triyana, I. Santoso",
     venue: "Physica B: Condensed Matter",
     year: 2024,
-    theme: "energy",
+    theme: "ml-energy",
     doi: "10.1016/j.physb.2024.415711",
   },
   {
@@ -237,7 +237,7 @@ export const publications: Publication[] = [
     authors: "Y. Affandi, M. A. U. Absor, M. Anshory, W. Amalia",
     venue: "Indonesian Journal of Chemistry",
     year: 2024,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.22146/ijc.93543",
   },
   {
@@ -246,7 +246,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso, Harsojo",
     venue: "Physical Review B",
     year: 2024,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.109.115141",
   },
   {
@@ -255,7 +255,7 @@ export const publications: Publication[] = [
     authors: "E. Widianto, C. Driyo, S. Sudarsono, S. Shobih, N. M. Nursam, M. Y. Hanna, M. A. U. Absor, K. Triyana, I. Santoso",
     venue: "Advanced Theory and Simulations",
     year: 2024,
-    theme: "energy",
+    theme: "ml-energy",
     doi: "10.1002/adts.202300610",
   },
   {
@@ -264,7 +264,7 @@ export const publications: Publication[] = [
     authors: "A. Lukmantoro, M. A. U. Absor",
     venue: "Physical Review Materials",
     year: 2023,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevmaterials.7.104005",
     highlight: true,
   },
@@ -274,7 +274,7 @@ export const publications: Publication[] = [
     authors: "R. M. Kaloari, E. Widianto, I. K. A. P. Dana, A. Lukmantoro, E. Suharyadi, T. Kato, S. Iwata, M. A. U. Absor, I. Santoso",
     venue: "Thin Solid Films",
     year: 2023,
-    theme: "quantum-2d",
+    theme: "functional",
     doi: "10.1016/j.tsf.2023.139825",
   },
   {
@@ -283,7 +283,7 @@ export const publications: Publication[] = [
     authors: "D. N. Rositawati, M. A. U. Absor, K. Triyana, I. Santoso",
     venue: "Advances in Natural Sciences: Nanoscience and Nanotechnology",
     year: 2023,
-    theme: "quantum-2d",
+    theme: "functional",
     doi: "10.1088/2043-6262/acebd9",
   },
   {
@@ -292,7 +292,7 @@ export const publications: Publication[] = [
     authors: "M. D. Umar, L. D. Falihin, A. Lukmantoro, Harsojo, M. A. U. Absor",
     venue: "Physical Review B",
     year: 2023,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.1103/physrevb.108.035109",
   },
   {
@@ -301,7 +301,7 @@ export const publications: Publication[] = [
     authors: "A. Lukmantoro, M. A. U. Absor",
     venue: "Solid State Phenomena",
     year: 2023,
-    theme: "quantum-2d",
+    theme: "topo-magnetic",
     doi: "10.4028/p-r9fuze",
   },
   {
@@ -310,7 +310,7 @@ export const publications: Publication[] = [
     authors: "H. Ardiyanti, N. Mabarroh, N. A. Wibowo, N. I. Istiqomah, R. M. Tumbelaka, M. A. U. Absor, E. Suharyadi",
     venue: "Journal of Science: Advanced Materials and Devices",
     year: 2023,
-    theme: "catalysis",
+    theme: "functional",
     doi: "10.1016/j.jsamd.2023.100556",
   },
   {
@@ -319,7 +319,7 @@ export const publications: Publication[] = [
     authors: "E. Fidiani, A. Z. AlKahfi, M. A. U. Absor, R. D. Pravitasari, Damisih, E. L. Dewi, Y.-L. Chiu, S. Du",
     venue: "ACS Applied Energy Materials",
     year: 2022,
-    theme: "energy",
+    theme: "ml-energy",
     doi: "10.1021/acsaem.2c02528",
   },
   {
@@ -328,7 +328,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, A. Lukmantoro, I. Santoso",
     venue: "Journal of Physics: Condensed Matter",
     year: 2022,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1361-648x/ac8c14",
   },
   {
@@ -337,7 +337,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso",
     venue: "Journal of Applied Physics",
     year: 2022,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1063/5.0121520",
   },
   {
@@ -346,7 +346,7 @@ export const publications: Publication[] = [
     authors: "L. D. Falihin, H. Harsojo, M. A. U. Absor",
     venue: "Materials Science Forum",
     year: 2022,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.4028/p-1ud9tw",
   },
   {
@@ -355,7 +355,7 @@ export const publications: Publication[] = [
     authors: "T. S. Z. Darajat, M. A. U. Absor",
     venue: "Key Engineering Materials",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.4028/www.scientific.net/kem.884.394",
   },
   {
@@ -364,7 +364,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, Y. Faishal, M. Anshory, I. Santoso, F. Ishii",
     venue: "Journal of Physics: Condensed Matter",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1361-648x/ac0383",
   },
   {
@@ -373,7 +373,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, F. Ishii",
     venue: "Physical Review B",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.103.045119",
   },
   {
@@ -382,7 +382,7 @@ export const publications: Publication[] = [
     authors: "M. Anshory, M. Y. Hanna, M. A. U. Absor",
     venue: "Materials Today: Proceedings",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1016/j.matpr.2020.11.507",
   },
   {
@@ -391,7 +391,7 @@ export const publications: Publication[] = [
     authors: "S. A. Putri, E. Suharyadi, M. A. U. Absor",
     venue: "Indonesian Journal of Chemistry",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.22146/ijc.57949",
   },
   {
@@ -400,7 +400,7 @@ export const publications: Publication[] = [
     authors: "S. A. Sasmito, M. Anshory, I. Jihad, M. A. U. Absor",
     venue: "Physical Review B",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.104.115145",
   },
   {
@@ -409,7 +409,7 @@ export const publications: Publication[] = [
     authors: "Y. Y. S. Teweng, M. A. U. Absor",
     venue: "Materials Today: Proceedings",
     year: 2021,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1016/j.matpr.2020.11.516",
   },
   {
@@ -418,7 +418,7 @@ export const publications: Publication[] = [
     authors: "I. Jihad, J. Hendrawan, A. S. Putra, K. Triyana, M. A. U. Absor",
     venue: "Indonesian Journal of Chemistry",
     year: 2020,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.22146/ijc.49331",
   },
   {
@@ -427,7 +427,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso, N. Yamaguchi, F. Ishii",
     venue: "Physical Review B",
     year: 2020,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.101.155410",
   },
   {
@@ -436,7 +436,7 @@ export const publications: Publication[] = [
     authors: "M. Anshory, M. A. U. Absor",
     venue: "Physica E: Low-dimensional Systems and Nanostructures",
     year: 2020,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1016/j.physe.2020.114372",
   },
   {
@@ -445,7 +445,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, F. Ishii",
     venue: "Physical Review B",
     year: 2019,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.99.075136",
   },
   {
@@ -454,7 +454,7 @@ export const publications: Publication[] = [
     authors: "Y. Affandi, M. A. U. Absor",
     venue: "Physica E: Low-dimensional Systems and Nanostructures",
     year: 2019,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1016/j.physe.2019.113611",
   },
   {
@@ -463,7 +463,7 @@ export const publications: Publication[] = [
     authors: "J. Hendrawan, M. A. U. Absor, M. Arifin, I. Jihad, K. Abraha",
     venue: "IOP Conference Series: Materials Science and Engineering",
     year: 2019,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1757-899x/515/1/012105",
   },
   {
@@ -472,7 +472,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, F. Ishii",
     venue: "Physical Review B",
     year: 2019,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.100.115104",
     highlight: true,
   },
@@ -482,7 +482,7 @@ export const publications: Publication[] = [
     authors: "M. Kharisma Andri, M. A. U. Absor",
     venue: "IOP Conference Series: Materials Science and Engineering",
     year: 2019,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1757-899x/515/1/012060",
   },
   {
@@ -491,7 +491,7 @@ export const publications: Publication[] = [
     authors: "K. Umam, Sholihun, P. Nurwantoro, M. A. U. Absor, A. D. Nugraheni, R. H. S. Budhi",
     venue: "Journal of Physics: Conference Series",
     year: 2018,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1742-6596/1011/1/012074",
   },
   {
@@ -500,7 +500,7 @@ export const publications: Publication[] = [
     authors: "Y. Affandi, M. A. U. Absor, K. Abraha",
     venue: "Journal of Physics: Conference Series",
     year: 2018,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1088/1742-6596/1011/1/012070",
   },
   {
@@ -509,7 +509,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso, Harsojo, K. Abraha, H. Kotaka, F. Ishii, M. Saito",
     venue: "Physical Review B",
     year: 2018,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.97.205138",
   },
   {
@@ -518,7 +518,7 @@ export const publications: Publication[] = [
     authors: "M. Y. Hanna, I. Santoso, M. A. U. Absor",
     venue: "Journal of Physics: Conference Series",
     year: 2018,
-    theme: "quantum-2d",
+    theme: "functional",
     doi: "10.1088/1742-6596/1011/1/012071",
   },
   {
@@ -527,7 +527,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, H. Kotaka, F. Ishii, M. Saito",
     venue: "Japanese Journal of Applied Physics",
     year: 2018,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.7567/jjap.57.04fp01",
   },
   {
@@ -536,7 +536,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso, Harsojo, K. Abraha, F. Ishii, M. Saito",
     venue: "Physical Review B",
     year: 2017,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.96.115128",
   },
   {
@@ -545,16 +545,16 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, I. Santoso, Harsojo, K. Abraha, H. Kotaka, F. Ishii, M. Saito",
     venue: "Journal of Applied Physics",
     year: 2017,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1063/1.5008475",
   },
   {
     id: "absor2016spin",
-    title: "Spin-split bands of metallic hydrogenated ZnO (10̅1̅0) surface: First-principles study",
+    title: "Spin-split bands of metallic hydrogenated ZnO (101̅0) surface: First-principles study",
     authors: "M. A. U. Absor, F. Ishii, H. Kotaka, M. Saito",
     venue: "AIP Advances",
     year: 2016,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1063/1.4942104",
   },
   {
@@ -563,17 +563,17 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, H. Kotaka, F. Ishii, M. Saito",
     venue: "Physical Review B",
     year: 2016,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.1103/physrevb.94.115131",
     highlight: true,
   },
   {
     id: "absor2015persistent",
-    title: "Persistent spin helix on a wurtzite ZnO (10̅1̅0) surface: First-principles density-functional study",
+    title: "Persistent spin helix on a wurtzite ZnO (101̅0) surface: First-principles density-functional study",
     authors: "M. A. U. Absor, F. Ishii, H. Kotaka, M. Saito",
     venue: "Applied Physics Express",
     year: 2015,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.7567/apex.8.073006",
   },
   {
@@ -582,7 +582,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, H. Kotaka, F. Ishii, M. Saito",
     venue: "Applied Physics Express",
     year: 2014,
-    theme: "quantum-2d",
+    theme: "spin-orbit",
     doi: "10.7567/apex.7.053002",
   },
   {
@@ -591,7 +591,7 @@ export const publications: Publication[] = [
     authors: "K. Abraha, M. A. U. Absor",
     venue: "Prosiding Seminar Nasional Penelitian, Pendidikan dan Penerapan MIPA",
     year: 2012,
-    theme: "quantum-2d",
+    theme: "functional",
   },
   {
     id: "mayasari2012enhancement",
@@ -599,7 +599,7 @@ export const publications: Publication[] = [
     authors: "R. D. Mayasari, M. A. U. Absor, K. Abraha",
     venue: "IPC2012 Proceedings",
     year: 2012,
-    theme: "catalysis",
+    theme: "functional",
   },
   {
     id: "absor2009quantum",
@@ -607,7 +607,7 @@ export const publications: Publication[] = [
     authors: "M. A. U. Absor, M. D. Umar, K. Abraha, L. T. Handoko, M. R. T. Siregar",
     venue: "AIP Conference Proceedings",
     year: 2009,
-    theme: "quantum-2d",
+    theme: "functional",
     doi: "10.1063/1.3243273",
   },
 ];

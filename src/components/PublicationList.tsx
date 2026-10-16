@@ -68,7 +68,7 @@ export function PublicationList({
             type="search"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="e.g. Janus, perovskite, Hutapea"
+            placeholder="e.g. Rashba, perovskite, Lukmantoro"
             className="mt-1.5 w-full rounded-lg border border-line bg-white px-4 py-3 text-[1rem] outline-none transition-colors placeholder:text-muted/60 focus:border-ink"
           />
         </label>

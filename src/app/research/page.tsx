@@ -6,7 +6,7 @@ import { themes, tools } from "@/data/research";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "Research themes of the Computational Materials Design group: 2D and Janus quantum materials, energy materials, catalysis and machine learning.",
+  description: "Research themes of the Computational Materials Design group: spin–orbit physics, topological and magnetic materials, functional materials and sensors, and machine learning for energy materials.",
 };
 
 export default function ResearchPage() {
