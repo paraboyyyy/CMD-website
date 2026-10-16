@@ -68,6 +68,10 @@ export function Footer() {
       <div className="border-t border-white/10">
         <p className="wrap py-6 text-[0.82rem] text-frost-muted">
           © {new Date().getFullYear()} {site.name} group, {site.institution}
+          <span aria-hidden> · </span>
+          <Link className="hover:text-conduction-lt" href="/login">
+            Member login
+          </Link>
         </p>
       </div>
     </footer>

@@ -4,15 +4,18 @@ import { BandExplorer } from "@/components/BandExplorer";
 import { ThemeList } from "@/components/ThemeList";
 import { themes, workflow, tools } from "@/data/research";
 import { publications } from "@/data/publications";
-import { news } from "@/data/news";
+import { getPublishedNews } from "@/lib/news";
 import { labEnabled, site } from "@/data/site";
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
-export default function Home() {
+// Published news is re-read at most every 5 minutes; approving a post refreshes the page straight away.
+export const revalidate = 300;
+
+export default async function Home() {
   const selected = publications.filter((p) => p.highlight).slice(0, 3);
-  const latest = news.slice(0, 3);
+  const latest = await getPublishedNews(3);
 
   return (
     <>
@@ -162,7 +165,7 @@ export default function Home() {
             </div>
             <ul className="border-t border-line">
               {latest.map((n) => (
-                <li key={n.title} className="border-b border-line py-6">
+                <li key={n.id} className="border-b border-line py-6">
                   <time dateTime={n.date} className="text-[0.88rem] text-muted">
                     {fmtDate(n.date)}
                   </time>

@@ -1,4 +1,5 @@
-// SAMPLE CONTENT — replace with the group's own announcements. Newest first.
+// SAMPLE CONTENT — shown only until Supabase is connected (see SETUP-NEWS.md).
+// After that, members write news on the website at /admin. Newest first.
 
 export type NewsItem = {
   date: string; // ISO date

@@ -40,10 +40,15 @@ All text lives in `src/data/` — you rarely need to touch the components.
 | `research.ts` | Research themes, workflow steps, software list, elements per theme |
 | `people.ts` | Members, roles, bios, alumni. Put photos in `public/people/` and set `photo: "/people/name.jpg"` |
 | `publications.ts` | Papers. Add `doi` to show a “View article” link, `pdf` for a download link, `highlight: true` for selected papers |
-| `news.ts` | News items, newest first |
+| `news.ts` | Sample news, shown only until Supabase is connected. After that, members write news at `/admin` (see [SETUP-NEWS.md](SETUP-NEWS.md)) |
 | `positions.ts` | Open positions |
 
 > **All people, publications, news and positions are sample placeholders.** Replace them before going live.
+
+## Member login and news
+
+Group members log in at `/login` (email link, no password) and write news at `/admin`; an admin approves each item before it appears on `/news`.
+Data lives in Supabase. Setup steps, in Indonesian, are in [SETUP-NEWS.md](SETUP-NEWS.md); the database schema and access rules are in `supabase/schema.sql`.
 
 ## Design notes
 
