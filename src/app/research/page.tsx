@@ -84,9 +84,8 @@ export default function ResearchPage() {
           <h2 className="text-[2rem] md:text-[2.5rem]">Computing</h2>
           <div className="measure text-[1.06rem] leading-[1.7]">
             <p>
-              Our calculations run on a departmental GPU cluster and on national high-performance computing allocations.
-              Workflows are tracked with full provenance so that every number in a paper can be traced back to its
-              inputs.
+              Our calculations are based on density functional theory, with spin–orbit coupling included wherever spin
+              matters. These are the main codes we use.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {tools.map((t) => (

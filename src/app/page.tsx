@@ -5,7 +5,7 @@ import { ThemeList } from "@/components/ThemeList";
 import { themes, workflow, tools } from "@/data/research";
 import { publications } from "@/data/publications";
 import { news } from "@/data/news";
-import { site } from "@/data/site";
+import { labEnabled, site } from "@/data/site";
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -42,9 +42,11 @@ export default function Home() {
               <Link href="/research" className="btn btn-amber">
                 Explore our research
               </Link>
-              <Link href="/lab" className="btn btn-ghost">
-                Try the interactive lab
-              </Link>
+              {labEnabled && (
+                <Link href="/lab" className="btn btn-ghost">
+                  Try the interactive lab
+                </Link>
+              )}
             </div>
           </div>
           <LatticeCanvas className="h-[380px] sm:h-[460px] lg:h-[560px]" />
@@ -60,7 +62,7 @@ export default function Home() {
             which materials are worth making.
           </p>
           <div className="lg:pt-3">
-            <p className="text-muted">Codes and frameworks we use and contribute to</p>
+            <p className="text-muted">Main codes we use</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {tools.map((t) => (
                 <li key={t} className="rounded-full border border-line px-3 py-1 text-[0.9rem]">
@@ -112,21 +114,23 @@ export default function Home() {
       </section>
 
       {/* ── Interactive band structure ───────────────────── */}
-      <section className="on-dark bg-ink py-20 text-frost md:py-28">
-        <div className="wrap">
-          <div className="mb-12 grid gap-6 lg:grid-cols-[1.45fr_1fr]">
-            <h2 className="text-[2rem] md:text-[var(--text-h2)]">Open a topological gap yourself</h2>
-            <p className="text-frost-muted">
-              This is the Haldane model, the simplest recipe for a quantum anomalous Hall insulator and a cousin of the
-              Janus materials we study. Move the sliders and watch the bands at K touch and reopen.
-            </p>
+      {labEnabled && (
+        <section className="on-dark bg-ink py-20 text-frost md:py-28">
+          <div className="wrap">
+            <div className="mb-12 grid gap-6 lg:grid-cols-[1.45fr_1fr]">
+              <h2 className="text-[2rem] md:text-[var(--text-h2)]">Open a topological gap yourself</h2>
+              <p className="text-frost-muted">
+                This is the Haldane model, the simplest recipe for a quantum anomalous Hall insulator and a cousin of the
+                Janus materials we study. Move the sliders and watch the bands at K touch and reopen.
+              </p>
+            </div>
+            <BandExplorer showPhase={false} />
+            <Link href="/lab" className="btn btn-ghost mt-12">
+              Open the full interactive lab
+            </Link>
           </div>
-          <BandExplorer showPhase={false} />
-          <Link href="/lab" className="btn btn-ghost mt-12">
-            Open the full interactive lab
-          </Link>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Papers and news ──────────────────────────────── */}
       <section className="py-20 md:py-28">

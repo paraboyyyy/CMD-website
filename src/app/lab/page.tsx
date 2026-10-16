@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { BandExplorer } from "@/components/BandExplorer";
 import { LatticeCanvas } from "@/components/LatticeCanvas";
+import { labEnabled } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Interactive lab",
@@ -9,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function LabPage() {
+  if (!labEnabled) notFound();
+
   return (
     <div className="on-dark bg-ink text-frost">
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">

@@ -103,17 +103,4 @@ export const workflow = [
   },
 ];
 
-export const tools = [
-  "VASP",
-  "Quantum ESPRESSO",
-  "Wannier90",
-  "WannierTools",
-  "Phonopy",
-  "BerkeleyGW",
-  "LAMMPS",
-  "ASE",
-  "pymatgen",
-  "AiiDA",
-  "MACE",
-  "NequIP",
-];
+export const tools = ["OpenMX", "Wannier90", "SCAPS-1D"];

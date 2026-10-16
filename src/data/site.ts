@@ -21,9 +21,13 @@ export const site = {
   },
 };
 
+// The interactive lab is switched off for now. Set to true to bring back the /lab page,
+// its menu item and the band-structure demo on the home page.
+export const labEnabled = false;
+
 export const nav = [
   { href: "/research", label: "Research" },
-  { href: "/lab", label: "Interactive lab" },
+  ...(labEnabled ? [{ href: "/lab", label: "Interactive lab" }] : []),
   { href: "/people", label: "People" },
   { href: "/publications", label: "Publications" },
   { href: "/news", label: "News" },
