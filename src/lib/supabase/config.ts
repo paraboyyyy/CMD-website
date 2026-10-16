@@ -1,8 +1,14 @@
 // Supabase is optional: until these are set, the site shows the sample news in src/data/news.ts
 // and the member area explains how to finish the setup.
-export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-export const supabaseKey =
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+// Values pasted into a dashboard often pick up a newline, spaces, quotes or invisible characters,
+// which the browser then refuses to send ("Failed to execute 'fetch' on 'Window': Invalid value").
+// URLs and Supabase keys only ever use these characters, so drop anything else.
+const clean = (v: string | undefined) => (v ?? "").replace(/[^A-Za-z0-9._:/-]/g, "");
+
+export const supabaseUrl = clean(process.env.NEXT_PUBLIC_SUPABASE_URL).replace(/\/+$/, "");
+export const supabaseKey = clean(
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+);
 export const supabaseConfigured = Boolean(supabaseUrl && supabaseKey);
 
 export const NEWS_BUCKET = "news-images";
