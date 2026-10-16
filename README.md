@@ -47,7 +47,7 @@ All text lives in `src/data/` — you rarely need to touch the components.
 
 ## Member login and news
 
-Group members log in at `/login` (email link, no password) and write news at `/admin`; an admin approves each item before it appears on `/news`.
+Group members log in at `/login` with an email and password an admin created for them and write news at `/admin`; an admin approves each item before it appears on `/news`.
 Data lives in Supabase. Setup steps, in Indonesian, are in [SETUP-NEWS.md](SETUP-NEWS.md); the database schema and access rules are in `supabase/schema.sql`.
 
 ## Design notes

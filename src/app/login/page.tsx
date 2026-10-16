@@ -12,14 +12,15 @@ export const metadata: Metadata = {
 };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  if (supabaseConfigured) {
+  const { error } = await searchParams;
+  // A logged-in account without a profile row is sent back here with ?error=profile; stay put instead of looping.
+  if (supabaseConfigured && error !== "profile") {
     const supabase = await createSessionClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
     if (user) redirect("/admin");
   }
-  const { error } = await searchParams;
 
   return (
     <>
@@ -29,12 +30,13 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <div className="max-w-xl">
             {supabaseConfigured ? (
               <>
-                {error === "link" && (
+                {error === "profile" && (
                   <p
                     role="alert"
                     className="mb-6 rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-[0.95rem] text-red-900"
                   >
-                    That login link has expired or was already used. Ask for a new one below.
+                    Your account exists but has no member profile yet. Ask an admin to finish setting it up (see
+                    SETUP-NEWS.md).
                   </p>
                 )}
                 <LoginForm />

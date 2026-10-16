@@ -104,3 +104,17 @@ export async function signOut() {
   await supabase.auth.signOut();
   redirect("/login");
 }
+
+export type PasswordState = { error?: string; done?: boolean };
+
+export async function changePassword(_prev: PasswordState, form: FormData): Promise<PasswordState> {
+  const { supabase } = await requireMember();
+  const password = String(form.get("password") ?? "");
+  const confirm = String(form.get("confirm") ?? "");
+  if (password.length < 8) return { error: "Use at least 8 characters." };
+  if (password !== confirm) return { error: "The two passwords do not match." };
+
+  const { error } = await supabase.auth.updateUser({ password });
+  if (error) return { error: `Could not change the password: ${error.message}` };
+  return { done: true };
+}
