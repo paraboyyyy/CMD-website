@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { newsKindLabel } from "@/data/news";
-import { getPublishedNews, paragraphs } from "@/lib/news";
+import { excerpt, getPublishedNews } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "News",
@@ -42,22 +43,34 @@ export default async function NewsPage() {
                   >
                     {fmt(n.date)}
                   </time>
-                  <article className="measure">
-                    <p className="text-[0.85rem] text-valence">{newsKindLabel[n.kind]}</p>
-                    <h2 className="mt-1 text-[1.5rem] leading-snug">{n.title}</h2>
+                  <article className="grid gap-5 sm:grid-cols-[1fr_auto] sm:gap-8">
+                    <div className="measure">
+                      <p className="text-[0.85rem] text-valence">{newsKindLabel[n.kind]}</p>
+                      <h2 className="mt-1 text-[1.5rem] leading-snug">
+                        <Link href={`/news/${n.id}`} className="hover:text-valence hover:underline">
+                          {n.title}
+                        </Link>
+                      </h2>
+                      {n.body && <p className="mt-2 leading-relaxed text-muted">{excerpt(n.body)}</p>}
+                      <Link
+                        href={`/news/${n.id}`}
+                        className="link mt-3 inline-block text-[0.95rem]"
+                        aria-hidden
+                        tabIndex={-1}
+                      >
+                        Read more
+                      </Link>
+                    </div>
                     {n.imageUrl && (
-                      <img
-                        src={n.imageUrl}
-                        alt=""
-                        loading="lazy"
-                        className="mt-4 w-full rounded-lg border border-line object-cover"
-                      />
+                      <Link href={`/news/${n.id}`} aria-hidden tabIndex={-1} className="sm:order-none -order-1">
+                        <img
+                          src={n.imageUrl}
+                          alt=""
+                          loading="lazy"
+                          className="aspect-[4/3] w-full rounded-lg border border-line object-cover sm:w-48"
+                        />
+                      </Link>
                     )}
-                    {paragraphs(n.body).map((p, i) => (
-                      <p key={i} className="mt-2 leading-relaxed text-muted">
-                        {p}
-                      </p>
-                    ))}
                   </article>
                 </li>
               ))}

@@ -23,7 +23,8 @@ export type SaveNewsInput = {
 
 function refreshPublicPages() {
   revalidatePath("/");
-  revalidatePath("/news");
+  // "layout" also refreshes every page under /news, including each news item's own page.
+  revalidatePath("/news", "layout");
 }
 
 export async function saveNews(input: SaveNewsInput): Promise<{ error: string } | void> {

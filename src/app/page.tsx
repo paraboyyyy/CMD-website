@@ -123,8 +123,8 @@ export default async function Home() {
             <div className="mb-12 grid gap-6 lg:grid-cols-[1.45fr_1fr]">
               <h2 className="text-[2rem] md:text-[var(--text-h2)]">Open a topological gap yourself</h2>
               <p className="text-frost-muted">
-                This is the Haldane model, the simplest recipe for a quantum anomalous Hall insulator and a cousin of the
-                Janus materials we study. Move the sliders and watch the bands at K touch and reopen.
+                This is the Haldane model, the simplest recipe for a quantum anomalous Hall insulator and a cousin of
+                the Janus materials we study. Move the sliders and watch the bands at K touch and reopen.
               </p>
             </div>
             <BandExplorer showPhase={false} />
@@ -169,7 +169,11 @@ export default async function Home() {
                   <time dateTime={n.date} className="text-[0.88rem] text-muted">
                     {fmtDate(n.date)}
                   </time>
-                  <p className="mt-1 font-medium leading-snug">{n.title}</p>
+                  <p className="mt-1 font-medium leading-snug">
+                    <Link href={`/news/${n.id}`} className="hover:text-valence hover:underline">
+                      {n.title}
+                    </Link>
+                  </p>
                 </li>
               ))}
             </ul>
@@ -184,7 +188,8 @@ export default async function Home() {
             <div>
               <h2 className="text-[1.9rem] md:text-[2.2rem]">We are looking for PhD students and collaborators</h2>
               <p className="measure mt-3 text-muted">
-                If you enjoy physics, chemistry and code in roughly equal parts, there is probably a project here for you.
+                If you enjoy physics, chemistry and code in roughly equal parts, there is probably a project here for
+                you.
               </p>
             </div>
             <Link href="/join" className="btn btn-primary justify-self-start">
