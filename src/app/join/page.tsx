@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ContactForm } from "@/components/ContactForm";
-import { positions } from "@/data/positions";
 import { site } from "@/data/site";
+import { getOpenPositions } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Join us",
@@ -17,7 +17,11 @@ const steps = [
   "Successful candidates are supported through UGM's admission and scholarship applications.",
 ];
 
-export default function JoinPage() {
+// Positions are edited by admins; re-read at most every 5 minutes, and straight away after an edit.
+export const revalidate = 300;
+
+export default async function JoinPage() {
+  const positions = await getOpenPositions();
   return (
     <>
       <PageHeader
@@ -28,29 +32,44 @@ export default function JoinPage() {
       <section className="py-16 md:py-20">
         <div className="wrap">
           <h2 className="text-[1.9rem] md:text-[2.2rem]">Open positions</h2>
-          <ul className="mt-8 border-t border-line">
-            {positions.map((p) => (
-              <li key={p.title} className="grid gap-6 border-b border-line py-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
-                <div>
-                  <h3 className="text-[1.6rem] leading-snug">{p.title}</h3>
-                  <p className="mt-2 text-conduction">{p.level}</p>
-                  <p className="mt-1 text-[0.93rem] text-muted">{p.deadline}</p>
-                </div>
-                <div>
-                  <p className="leading-relaxed">{p.text}</p>
-                  <h4 className="mt-6 text-[0.95rem] font-semibold">What we look for</h4>
-                  <ul className="mt-3 space-y-2">
-                    {p.requirements.map((r) => (
-                      <li key={r} className="flex gap-3">
-                        <span aria-hidden className="mt-[0.62em] h-1.5 w-1.5 shrink-0 rounded-full bg-valence" />
-                        <span>{r}</span>
-                      </li>
+          {positions.length === 0 ? (
+            <p className="measure mt-6 text-[1.06rem] leading-relaxed text-muted">
+              There are no advertised openings right now. We are still happy to hear from motivated students who would
+              like to do a thesis or PhD with us: see how to apply below, or write to us directly.
+            </p>
+          ) : (
+            <ul className="mt-8 border-t border-line">
+              {positions.map((p) => (
+                <li key={p.id} className="grid gap-6 border-b border-line py-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+                  <div>
+                    <h3 className="text-[1.6rem] leading-snug">{p.title}</h3>
+                    <p className="mt-2 text-conduction">{p.level}</p>
+                    <p className="mt-1 text-[0.93rem] text-muted">{p.deadline}</p>
+                  </div>
+                  <div>
+                    {p.text.split(/\n\s*\n/).map((para, i) => (
+                      <p key={i} className={`leading-relaxed ${i ? "mt-4" : ""}`}>
+                        {para}
+                      </p>
                     ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
+                    {p.requirements.length > 0 && (
+                      <>
+                        <h4 className="mt-6 text-[0.95rem] font-semibold">What we look for</h4>
+                        <ul className="mt-3 space-y-2">
+                          {p.requirements.map((r) => (
+                            <li key={r} className="flex gap-3">
+                              <span aria-hidden className="mt-[0.62em] h-1.5 w-1.5 shrink-0 rounded-full bg-valence" />
+                              <span>{r}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
@@ -60,7 +79,9 @@ export default function JoinPage() {
           <ol className="space-y-6">
             {steps.map((s, i) => (
               <li key={s} className="grid grid-cols-[auto_1fr] gap-5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-display text-frost">{i + 1}</span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-display text-frost">
+                  {i + 1}
+                </span>
                 <p className="pt-1 leading-relaxed">{s}</p>
               </li>
             ))}
@@ -76,9 +97,7 @@ export default function JoinPage() {
               For applications, collaborations or questions about our work. We usually reply within a week.
             </p>
             <address className="mt-8 not-italic leading-relaxed">
-              <span className="block font-medium">
-                {site.name} group
-              </span>
+              <span className="block font-medium">{site.name} group</span>
               {site.address.map((l) => (
                 <span key={l} className="block text-muted">
                   {l}

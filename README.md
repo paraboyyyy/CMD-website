@@ -41,7 +41,7 @@ All text lives in `src/data/` — you rarely need to touch the components.
 | `people.ts` | Fallback members and alumni. Admins manage the real list, with photos, at `/admin/people` |
 | `publications.ts` | Papers. Add `doi` to show a “View article” link, `pdf` for a download link, `highlight: true` for selected papers |
 | `news.ts` | Sample news, shown only until Supabase is connected. After that, members write news at `/admin` (see [SETUP-NEWS.md](SETUP-NEWS.md)) |
-| `positions.ts` | Open positions |
+| `positions.ts` | Empty fallback. Admins manage open positions at `/admin/positions` |
 
 > **All people, publications, news and positions are sample placeholders.** Replace them before going live.
 

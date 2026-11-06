@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { alumni as staticAlumni, people as staticPeople, type Person } from "@/data/people";
+import { positions as staticPositions, type Position } from "@/data/positions";
 import { themes as staticThemes, type Theme } from "@/data/research";
 import { PEOPLE_BUCKET, publicImageUrl, supabaseConfigured } from "./supabase/config";
 import { createPublicClient } from "./supabase/server";
@@ -95,4 +96,44 @@ export const getAlumni = cache(async (): Promise<AlumnusEntry[]> => {
     return staticAlumni.map((a) => ({ ...a, id: a.name }));
   }
   return data.map((a) => ({ id: a.id, name: a.name, then: a.then_text, now: a.now_text }));
+});
+
+export type PositionEntry = Position & { id: string };
+
+export type PositionRow = {
+  id: string;
+  title: string;
+  level: string;
+  deadline: string;
+  body: string;
+  requirements: string[];
+  is_open: boolean;
+  sort_order: number;
+};
+
+export const POSITION_COLUMNS = "id, title, level, deadline, body, requirements, is_open, sort_order";
+
+/** Open positions for the Join us page. */
+export const getOpenPositions = cache(async (): Promise<PositionEntry[]> => {
+  const fallback = staticPositions.map((p) => ({ ...p, id: p.title }));
+  if (!supabaseConfigured) return fallback;
+  const { data, error } = await createPublicClient()
+    .from("positions")
+    .select(POSITION_COLUMNS)
+    .eq("is_open", true)
+    .order("sort_order")
+    .order("title")
+    .returns<PositionRow[]>();
+  if (error) {
+    console.error("Could not load positions, using src/data/positions.ts:", error.message);
+    return fallback;
+  }
+  return data.map((p) => ({
+    id: p.id,
+    title: p.title,
+    level: p.level,
+    deadline: p.deadline,
+    text: p.body,
+    requirements: p.requirements,
+  }));
 });

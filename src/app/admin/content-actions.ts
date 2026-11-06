@@ -18,6 +18,7 @@ function refreshContentPages() {
   revalidatePath("/research");
   revalidatePath("/publications");
   revalidatePath("/people");
+  revalidatePath("/join");
   revalidatePath("/admin", "layout");
 }
 
@@ -188,5 +189,61 @@ export async function deleteAlumnus(id: string): Promise<Result> {
   const { error, count } = await supabase.from("alumni").delete({ count: "exact" }).eq("id", id);
   if (error) return { error: `Could not delete: ${error.message}` };
   if (!count) return { error: "That entry no longer exists." };
+  refreshContentPages();
+}
+
+// ── Open positions ───────────────────────────────────────────────────
+
+export type PositionInput = {
+  id?: string;
+  title: string;
+  level: string;
+  deadline: string;
+  body: string;
+  requirements: string[];
+  isOpen: boolean;
+  sortOrder: number;
+};
+
+export async function savePosition(input: PositionInput): Promise<Result> {
+  const { supabase } = await requireAdmin();
+  const title = input.title.trim();
+  if (title.length < 3) return { error: "Give the position a title of at least 3 characters." };
+
+  const row = {
+    title,
+    level: input.level.trim(),
+    deadline: input.deadline.trim(),
+    body: input.body.trim(),
+    requirements: clean(input.requirements),
+    is_open: input.isOpen,
+    sort_order: Number.isFinite(input.sortOrder) ? Math.round(input.sortOrder) : 0,
+  };
+  const { error, count } = input.id
+    ? await supabase.from("positions").update(row, { count: "exact" }).eq("id", input.id)
+    : await supabase.from("positions").insert(row, { count: "exact" });
+  if (error) return { error: `Could not save: ${error.message}` };
+  if (!count) return { error: "That position no longer exists." };
+
+  refreshContentPages();
+  redirect("/admin/positions?saved=1");
+}
+
+export async function setPositionOpen(id: string, isOpen: boolean): Promise<Result> {
+  const { supabase } = await requireAdmin();
+  const { error, count } = await supabase
+    .from("positions")
+    .update({ is_open: isOpen }, { count: "exact" })
+    .eq("id", id);
+  if (error) return { error: `Could not update: ${error.message}` };
+  if (!count) return { error: "That position no longer exists." };
+  refreshContentPages();
+}
+
+export async function deletePosition(id: string): Promise<Result> {
+  const { supabase } = await requireAdmin();
+  const { error, count } = await supabase.from("positions").delete({ count: "exact" }).eq("id", id);
+  if (error) return { error: `Could not delete: ${error.message}` };
+  if (!count) return { error: "That position no longer exists." };
   refreshContentPages();
 }
