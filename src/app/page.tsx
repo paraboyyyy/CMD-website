@@ -2,7 +2,8 @@ import Link from "next/link";
 import { LatticeCanvas } from "@/components/LatticeCanvas";
 import { BandExplorer } from "@/components/BandExplorer";
 import { ThemeList } from "@/components/ThemeList";
-import { themes, workflow, tools } from "@/data/research";
+import { workflow, tools } from "@/data/research";
+import { getThemes } from "@/lib/content";
 import { publications } from "@/data/publications";
 import { getPublishedNews } from "@/lib/news";
 import { labEnabled, site } from "@/data/site";
@@ -15,7 +16,7 @@ export const revalidate = 300;
 
 export default async function Home() {
   const selected = publications.filter((p) => p.highlight).slice(0, 3);
-  const latest = await getPublishedNews(3);
+  const [latest, themes] = await Promise.all([getPublishedNews(3), getThemes()]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import "server-only";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { supabaseConfigured } from "./supabase/config";
 import { createSessionClient } from "./supabase/server";
 
@@ -22,4 +22,11 @@ export async function requireMember() {
   if (!profile) redirect("/login?error=profile");
 
   return { supabase, user, profile, isAdmin: profile.role === "admin" };
+}
+
+/** Like requireMember, but only for admins; other members get a 404. */
+export async function requireAdmin() {
+  const member = await requireMember();
+  if (!member.isAdmin) notFound();
+  return member;
 }

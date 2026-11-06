@@ -37,8 +37,8 @@ All text lives in `src/data/` — you rarely need to touch the components.
 | File | Contents |
 | ---- | -------- |
 | `site.ts` | Group name, university, address, email, social links, navigation |
-| `research.ts` | Research themes, workflow steps, software list, elements per theme |
-| `people.ts` | Members, roles, bios, alumni. Put photos in `public/people/` and set `photo: "/people/name.jpg"` |
+| `research.ts` | Workflow steps and software list. Research themes are edited by admins at `/admin/research`; the ones here are a fallback |
+| `people.ts` | Fallback members and alumni. Admins manage the real list, with photos, at `/admin/people` |
 | `publications.ts` | Papers. Add `doi` to show a “View article” link, `pdf` for a download link, `highlight: true` for selected papers |
 | `news.ts` | Sample news, shown only until Supabase is connected. After that, members write news at `/admin` (see [SETUP-NEWS.md](SETUP-NEWS.md)) |
 | `positions.ts` | Open positions |

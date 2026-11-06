@@ -7,7 +7,8 @@ export type Publication = {
   authors: string;
   venue: string;
   year: number;
-  theme: "spin-orbit" | "topo-magnetic" | "functional" | "ml-energy";
+  /** Id of a research theme (see /admin/research or src/data/research.ts). */
+  theme: string;
   doi?: string;
   pdf?: string;
   highlight?: boolean;

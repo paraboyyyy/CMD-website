@@ -1,3 +1,6 @@
+// FALLBACK CONTENT for research themes — shown only until Supabase is connected and supabase/content.sql has run.
+// After that, admins edit themes at /admin/research. `workflow` and `tools` below are still read from this file.
+
 export type Theme = {
   id: string;
   title: string;

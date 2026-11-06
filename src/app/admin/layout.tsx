@@ -25,6 +25,16 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <Link className="link" href="/admin/news/new">
               Write news
             </Link>
+            {isAdmin && (
+              <>
+                <Link className="link" href="/admin/research">
+                  Research
+                </Link>
+                <Link className="link" href="/admin/people">
+                  People
+                </Link>
+              </>
+            )}
             <Link className="link" href="/admin/account">
               Account
             </Link>

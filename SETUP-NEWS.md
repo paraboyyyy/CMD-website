@@ -1,7 +1,7 @@
-# Menyiapkan login anggota dan berita (Supabase)
+# Menyiapkan area anggota: berita, riset dan people (Supabase)
 
-Website ini punya area anggota di `/admin`. Di sana anggota grup menulis berita, lalu admin menyetujuinya sebelum tayang di halaman News.
-Selama Supabase belum disambungkan, website tetap jalan seperti biasa dan halaman News menampilkan berita contoh dari `src/data/news.ts`.
+Website ini punya area anggota di `/admin`. Di sana anggota grup menulis berita, lalu admin menyetujuinya sebelum tayang di halaman News. Admin juga mengelola **tema riset** (halaman Research) serta **anggota dan alumni** (halaman People).
+Selama Supabase belum disambungkan, website tetap jalan seperti biasa dan memakai isi dari folder `src/data/`.
 
 ## Cara kerjanya
 
@@ -9,13 +9,13 @@ Selama Supabase belum disambungkan, website tetap jalan seperti biasa dan halama
 | ----- | -------- |
 | Pengunjung | Membaca berita yang sudah terbit. Tidak perlu login. |
 | Anggota (`member`) | Login, menulis berita (dengan atau tanpa gambar), menyimpan draft, mengirim untuk disetujui, mengedit atau menghapus beritanya sendiri selama belum terbit. |
-| Admin (`admin`) | Semua yang bisa dilakukan anggota, ditambah menyetujui (terbit), mengembalikan dengan catatan, menurunkan dan menghapus berita siapa pun. Admin juga bisa langsung menerbitkan beritanya sendiri. |
+| Admin (`admin`) | Semua yang bisa dilakukan anggota, ditambah menyetujui (terbit), mengembalikan dengan catatan, menurunkan dan menghapus berita siapa pun. Admin juga bisa langsung menerbitkan beritanya sendiri, serta menambah, mengubah dan menghapus **tema riset**, **anggota** (dengan foto) dan **alumni** lewat menu **Research** dan **People**. |
 
 Status berita: **Draft**, lalu **Waiting for approval**, lalu **Published**. Kalau dikembalikan admin, statusnya menjadi **Needs changes** dan penulis melihat catatan admin.
 
 Login memakai **email dan password**. Akun dibuatkan oleh admin di Supabase, jadi orang luar tidak bisa mendaftar sendiri. Setelah masuk, anggota bisa mengganti passwordnya sendiri di menu **Account**.
 
-Aturan siapa boleh melakukan apa dijaga di database (Row Level Security di `supabase/schema.sql`), bukan hanya di tampilan website.
+Aturan siapa boleh melakukan apa dijaga di database (Row Level Security di `supabase/schema.sql` dan `supabase/content.sql`), bukan hanya di tampilan website.
 
 ## Langkah setup (sekali saja)
 
@@ -30,6 +30,14 @@ Aturan siapa boleh melakukan apa dijaga di database (Row Level Security di `supa
 1. Di menu kiri, buka **SQL Editor**, lalu **New query**.
 2. Salin seluruh isi file [`supabase/schema.sql`](supabase/schema.sql), tempel, lalu klik **Run**.
 3. Pastikan muncul "Success. No rows returned".
+
+### 2b. Buat tabel riset dan people
+
+1. Di **SQL Editor**, buka **New query** lagi.
+2. Salin seluruh isi file [`supabase/content.sql`](supabase/content.sql), tempel, lalu klik **Run**. File ini harus dijalankan **setelah** `schema.sql`.
+3. File ini juga mengisi data awal: keempat tema riset yang sekarang ada di website, dan Pak Adhib sebagai group lead. Anggota lain dan alumni ditambahkan lewat menu **People** di dashboard.
+
+Sebelum file ini dijalankan, halaman Research dan People tetap menampilkan isi dari `src/data/`, dan menu Research atau People di dashboard akan memberi tahu bahwa tabelnya belum dibuat.
 
 ### 3. Atur login
 

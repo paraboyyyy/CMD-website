@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { PublicationList } from "@/components/PublicationList";
 import { publications } from "@/data/publications";
-import { themes } from "@/data/research";
+import { getThemes } from "@/lib/content";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default async function PublicationsPage({
 }: {
   searchParams: Promise<{ theme?: string }>;
 }) {
-  const { theme } = await searchParams;
+  const [{ theme }, themes] = await Promise.all([searchParams, getThemes()]);
   return (
     <>
       <PageHeader title="Publications">

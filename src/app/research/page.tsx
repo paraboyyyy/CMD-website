@@ -2,19 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { PeriodicTable } from "@/components/PeriodicTable";
-import { themes, tools } from "@/data/research";
+import { tools } from "@/data/research";
+import { getThemes } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Research",
   description: "Research themes of the Computational Materials Design group: spin–orbit physics, topological and magnetic materials, functional materials and sensors, and machine learning for energy materials.",
 };
 
-export default function ResearchPage() {
+// Themes are edited by admins; re-read at most every 5 minutes, and straight away after an edit.
+export const revalidate = 300;
+
+export default async function ResearchPage() {
+  const themes = await getThemes();
   return (
     <>
       <PageHeader
         title="Research"
-        intro="Four themes, one approach: start from the Schrödinger equation, check that a material can actually exist, then ask what it can do."
+        intro="One approach across all our themes: start from the Schrödinger equation, check that a material can actually exist, then ask what it can do."
       >
         <nav aria-label="Research themes" className="mt-10">
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
@@ -50,8 +55,8 @@ export default function ResearchPage() {
             </div>
             <div>
               <div className="prose-cmd measure text-[1.06rem] leading-[1.7]">
-                {t.body.map((para) => (
-                  <p key={para.slice(0, 24)}>{para}</p>
+                {t.body.map((para, j) => (
+                  <p key={j}>{para}</p>
                 ))}
               </div>
               <h3 className="mt-10 font-sans text-[1rem] font-semibold">Open questions</h3>

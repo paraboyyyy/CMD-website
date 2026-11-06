@@ -4,7 +4,11 @@
 // which the browser then refuses to send ("Failed to execute 'fetch' on 'Window': Invalid value").
 // URLs and Supabase keys only ever use these characters, so drop anything else.
 // A whole ".env" line (NAME=value) pasted as the value is also common: keep only what follows "=".
-const clean = (v: string | undefined) => (v ?? "").split("=").pop()!.replace(/[^A-Za-z0-9._:/-]/g, "");
+const clean = (v: string | undefined) =>
+  (v ?? "")
+    .split("=")
+    .pop()!
+    .replace(/[^A-Za-z0-9._:/-]/g, "");
 
 export const supabaseUrl = clean(process.env.NEXT_PUBLIC_SUPABASE_URL).replace(/\/+$/, "");
 export const supabaseKey = clean(
@@ -13,8 +17,12 @@ export const supabaseKey = clean(
 export const supabaseConfigured = Boolean(supabaseUrl && supabaseKey);
 
 export const NEWS_BUCKET = "news-images";
+export const PEOPLE_BUCKET = "people-photos";
 
-export function imageUrl(path: string | null | undefined) {
+export function publicImageUrl(bucket: string, path: string | null | undefined) {
   if (!path || !supabaseConfigured) return undefined;
-  return `${supabaseUrl}/storage/v1/object/public/${NEWS_BUCKET}/${path.split("/").map(encodeURIComponent).join("/")}`;
+  return `${supabaseUrl}/storage/v1/object/public/${bucket}/${path.split("/").map(encodeURIComponent).join("/")}`;
 }
+
+/** Public URL of a news picture. */
+export const imageUrl = (path: string | null | undefined) => publicImageUrl(NEWS_BUCKET, path);

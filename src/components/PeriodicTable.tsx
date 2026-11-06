@@ -1,19 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { PERIODIC_ROWS } from "@/data/elements";
 import type { Theme } from "@/data/research";
 
-// [symbol, period, group]  — periods 1–6; lanthanides collapsed into La.
-const ROWS: string[] = [
-  "H . . . . . . . . . . . . . . . . He",
-  "Li Be . . . . . . . . . . B C N O F Ne",
-  "Na Mg . . . . . . . . . . Al Si P S Cl Ar",
-  "K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr",
-  "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe",
-  "Cs Ba La Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn",
-];
-
-const CELLS = ROWS.flatMap((row, p) =>
+const CELLS = PERIODIC_ROWS.flatMap((row, p) =>
   row.split(" ").map((sym, g) => ({ sym, period: p + 1, group: g + 1 })).filter((c) => c.sym !== "."),
 );
 

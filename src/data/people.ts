@@ -1,5 +1,5 @@
-// SAMPLE CONTENT — replace every entry with real group members.
-// Add a photo by putting an image in /public/people and setting `photo`.
+// FALLBACK CONTENT — shown only until Supabase is connected and supabase/content.sql has run.
+// After that, admins manage people and alumni at /admin/people. The names below other than the lead are placeholders.
 
 export type Person = {
   name: string;
