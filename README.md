@@ -43,7 +43,7 @@ All text lives in `src/data/` — you rarely need to touch the components.
 | `news.ts` | Sample news, shown only until Supabase is connected. After that, members write news at `/admin` (see [SETUP-NEWS.md](SETUP-NEWS.md)) |
 | `positions.ts` | Empty fallback. Admins manage open positions at `/admin/positions` |
 
-> **All people, publications, news and positions are sample placeholders.** Replace them before going live.
+> News, research themes, people, alumni and open positions are managed by admins at `/admin` once Supabase is set up (see [SETUP-NEWS.md](SETUP-NEWS.md)); the files in `src/data/` are only a fallback.
 
 ## Member login and news
 
